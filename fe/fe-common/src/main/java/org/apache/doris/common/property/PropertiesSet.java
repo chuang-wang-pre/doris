@@ -119,7 +119,7 @@ public class PropertiesSet<T extends PropertySchema.SchemaGroup> {
         rawProperties.forEach((key, value) -> {
             String entryKey = key.toLowerCase();
             if (!schemaGroup.getSchemas().containsKey(entryKey)) {
-                throw new IllegalArgumentException("Invalid property [" + entryKey + "]");
+                throw new IllegalArgumentException("Invalid property [" + key + "]");
             }
             PropertySchema schema = schemaGroup.getSchemas().get(entryKey);
             properties.put(entryKey, reader.accept(schema, value));
